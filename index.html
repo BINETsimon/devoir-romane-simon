@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" onresize="checkWIn()">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Oggy et les cafards</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="burger" onclick="burgerMenu()"></div>
+            <div id="navBox">
+                <div id="TextAnim">
+                    <span id="navTxt">TAPETTE A MOUCHE - TAPETTE A MOUCHE - TAPETTE A MOUCHE - TAPETTE A MOUCHE - TAPETTE A MOUCHE - TAPETTE A MOUCHE</span>
+                </div>
+            </div>
+        </nav>
+        <div id="leftPannel">
+            <div class="accordeon">
+                <div class="navContent">Accordeon</div>
+                <div class="navContent bis" onclick="loader()">Loader</div>
+                <div class="navContent bis" onclick="loader()">Loader</div>
+            </div>
+            <div class="navContent" onclick="loader()">Loader</div>
+            <div class="navContent" onclick="loader()">Loader</div>
+            <div class="navContent" onclick="loader()">Loader</div>
+        </div>
+        <div id="BackdropNav" onclick="burgerMenu()"></div>
+    </header>
+    <div id="Backdroploader" onclick="loader()">
+        <div id="loader">
+            <div class="item1"></div>
+            <div class="item2"></div>
+            <div class="item3"></div>
+            <div class="item4"></div>
+        </div>
+    </div>
+    <main>
+        <div id="containerMain">
+            <div class="grid-item item1"> 
+                <div id="gameContainer">
+                    <img src="media/game/fond.jpg">
+                    <img src="media/game/coussin.png">
+                    <img src="media/game/canapé.png">
+                    <img src="media/game/oggy.png">
+                    <img id="cafard1" src="media/game/cafard1.png">
+                    <img id="CLICK1" src="media/game/cafardClick1.png" onclick="BAM()">
+                    <img id="cafard2" src="media/game/cafard2.png">
+                    <img id="CLICK2" src="media/game/cafardClick2.png" onclick="BAM()">
+                    <img id="cafard3" src="media/game/cafard3.png">
+                    <img id="CLICK3" src="media/game/cafardClick3.png" onclick="BAM()">
+                    <img id="splash" src="media/game/bulle.png">
+                    <div id="counter">
+                        <img src="media/cafardorange.png">
+                        <h1 id="compteur1">X 0</h1>
+                        <img src="media/cafardviolet.png">
+                        <h1 id="compteur2">X 0</h1>
+                        <img src="media/cafardvert.png">
+                        <h1 id="compteur3">X 0</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item item2" id="tableau2" onmouseover="BackChangeGif()">
+                <img src="media/voisin.gif">
+            </div>
+            <div class="grid-item item3">
+                <img src="media/tapettemégastylée.png">
+            </div>  
+            <div class="grid-item item4" id="tableau4">
+                <div class="text">
+                    <h1 id=OGGY1>OGGY</h1>
+                    <h1 id=OGGY2>OGGY</h1>
+                    <h1 id=OGGY3>OGGY</h1>
+                </div>
+            </div>
+            <div class="grid-item item5" id="tableau5" onmouseover="BackChangeAnim()">
+                <div class="animationOGGY">
+                    <img src="media/oggy.png" width="250px">
+                    <img src="media/cafardorange.png" width="150px">
+                    <img src="media/cafardvert.png" width="150px">
+                    <img src="media/cafardviolet.png" width="150px">
+                </div>
+            </div>
+        </div>
+    </main> 
+</body>
+</html>
+<script src="JS/script.js"></script>

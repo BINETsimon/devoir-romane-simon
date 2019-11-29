@@ -1,0 +1,587 @@
+html {
+  width: 100%;
+  margin: 0;
+  background-color: #000000;
+}
+html body {
+  width: 100%;
+  margin: 0;
+}
+html body header {
+  width: 100%;
+  height: 70px;
+}
+html body header nav {
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  background-color: #000000;
+  color: white;
+  z-index: 75;
+}
+html body header nav #burger {
+  width: 70px;
+  height: 70px;
+  float: left;
+  cursor: pointer;
+  background-image: url("../media/oggy_Burger.gif");
+  background-size: 70px;
+}
+html body header nav #navBox {
+  overflow: hidden;
+  height: 100%;
+  width: calc(100% - 70px);
+  float: right;
+}
+html body header nav #navBox #TextAnim {
+  animation: textDefil 5s linear infinite;
+}
+html body header nav #navBox #TextAnim #navTxt {
+  font-size: 60px;
+  font-family: "bangers";
+  white-space: nowrap;
+}
+html body header #BackdropNav {
+  position: fixed;
+  display: none;
+  width: 0;
+  height: calc(100vh);
+  background-color: #000000;
+  opacity: 0.5;
+  right: 0;
+  transition: 0.8s ease;
+  z-index: 50;
+}
+@media screen and (max-width: 1600px) {
+  html body header #BackdropNav {
+    display: block;
+  }
+}
+html body header #leftPannel {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: calc(100vh - 70px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background-color: #000000;
+  color: #ffffff;
+  z-index: 50;
+}
+html body header #leftPannel .navContent {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-size: 1.8em;
+  margin-left: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+html body header #leftPannel .navContent:hover {
+  background-color: #6e6e6e;
+}
+@media screen and (max-width: 630px) {
+  html body header #leftPannel .navContent {
+    font-size: 145%;
+  }
+}
+html body header #leftPannel .accordeon {
+  height: 80px;
+  overflow: hidden;
+  transition: height 0.8s ease;
+}
+html body header #leftPannel .accordeon:hover {
+  height: 170px;
+}
+html body header #leftPannel .accordeon .navContent:nth-child(2), html body header #leftPannel .accordeon .navContent:nth-child(3) {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+html body .remove {
+  display: none;
+}
+html body .add {
+  display: flex;
+}
+html body #Backdroploader {
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+html body #Backdroploader #loader {
+  margin: auto;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  animation: loader-space 2s ease infinite;
+  justify-content: space-around;
+}
+html body #Backdroploader #loader .item1 {
+  animation: animation-loader 2s infinite ease;
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  animation-delay: 0;
+}
+html body #Backdroploader #loader .item2 {
+  animation: animation-loader 2s infinite ease;
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  animation-delay: 0.1s;
+}
+html body #Backdroploader #loader .item3 {
+  animation: animation-loader 2s infinite ease;
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  animation-delay: 0.2s;
+}
+html body #Backdroploader #loader .item4 {
+  animation: animation-loader 2s infinite ease;
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  animation-delay: 0.3s;
+}
+html body main {
+  width: calc(100% - 20px);
+  float: right;
+}
+html body main #containerMain {
+  float: right;
+  width: 100%;
+  height: 150vh;
+  transition: 0.8s ease;
+  display: grid;
+  grid-gap: 10px;
+  background-color: #000000;
+  padding: 10px;
+}
+html body main #containerMain .grid-item {
+  background-color: #ffffff;
+  font-size: 30px;
+  height: auto;
+  width: auto;
+  position: relative;
+  overflow: hidden;
+}
+html body main #containerMain .grid-item img {
+  position: absolute;
+}
+html body main #containerMain .item1 {
+  grid-column: 1/span 2;
+  grid-row: 1/span 2;
+}
+html body main #containerMain .item1 #gameContainer img {
+  height: 100%;
+  z-index: 1;
+}
+html body main #containerMain .item1 #gameContainer img:nth-child(3) {
+  z-index: 6;
+}
+html body main #containerMain .item1 #gameContainer img:nth-child(4) {
+  z-index: 11;
+}
+html body main #containerMain .item1 #gameContainer #cafard1, html body main #containerMain .item1 #gameContainer #cafard2, html body main #containerMain .item1 #gameContainer #cafard3 {
+  display: none;
+}
+html body main #containerMain .item1 #gameContainer #splash {
+  height: 30%;
+  opacity: 0;
+  z-index: 21;
+  display: none;
+}
+html body main #containerMain .item1 #gameContainer #CLICK1, html body main #containerMain .item1 #gameContainer #CLICK2, html body main #containerMain .item1 #gameContainer #CLICK3 {
+  z-index: 20;
+  cursor: pointer;
+}
+html body main #containerMain .item1 #gameContainer .anim {
+  animation: splash 1s ease forwards;
+}
+html body main #containerMain .item1 #gameContainer #counter {
+  position: absolute;
+  height: 10%;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html body main #containerMain .item1 #gameContainer #counter h1 {
+  font-family: bangers;
+  color: white;
+  margin: 0;
+}
+@media screen and (max-width: 600px) {
+  html body main #containerMain .item1 #gameContainer #counter h1 {
+    font-size: 100%;
+  }
+}
+html body main #containerMain .item1 #gameContainer #counter img {
+  position: relative;
+  height: 100%;
+}
+html body main #containerMain .item2 {
+  grid-column: 3;
+  grid-row: 1;
+  background-color: #a56fbe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html body main #containerMain .item2 img {
+  left: 0;
+  width: 130%;
+}
+html body main #containerMain .item3 {
+  grid-column: 3;
+  grid-row: 2/span;
+  animation: tapettebg 1s infinite linear;
+}
+html body main #containerMain .item3 img {
+  height: 125%;
+  animation: tapette 1s infinite linear;
+}
+html body main #containerMain .item4 {
+  grid-column: 1;
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+html body main #containerMain .item4 .text {
+  position: absolute;
+  text-align: center;
+}
+html body main #containerMain .item5 {
+  grid-column: 2/span 2;
+  grid-row: 3;
+  background-color: #ff7105;
+}
+html body main #containerMain .item5 .animationOGGY img {
+  position: absolute;
+}
+html body main #containerMain .item5 .animationOGGY img:nth-child(1) {
+  top: -100%;
+  left: 20%;
+  animation: jump 0.4s infinite ease, mooveOggy 8s infinite linear;
+  animation-delay: 0.5s;
+}
+html body main #containerMain .item5 .animationOGGY img:nth-child(2) {
+  animation: jump 0.3s infinite ease, mooveCafard 8s infinite linear;
+  top: 40%;
+  left: 45%;
+}
+html body main #containerMain .item5 .animationOGGY img:nth-child(3) {
+  animation: jump 0.3s infinite ease, mooveCafard 8s infinite linear;
+  top: 40%;
+  animation-delay: 0.1s;
+  left: 63%;
+}
+html body main #containerMain .item5 .animationOGGY img:nth-child(4) {
+  animation: jump 0.3s infinite ease, mooveCafard 8s infinite linear;
+  top: 40%;
+  animation-delay: 0.2s;
+  left: 80%;
+}
+@media screen and (max-width: 600px) {
+  html body main #containerMain .item5 .animationOGGY img {
+    position: absolute;
+  }
+  html body main #containerMain .item5 .animationOGGY img:nth-child(1) {
+    width: 30%;
+  }
+  html body main #containerMain .item5 .animationOGGY img:nth-child(2) {
+    width: 20%;
+  }
+  html body main #containerMain .item5 .animationOGGY img:nth-child(3) {
+    width: 20%;
+  }
+  html body main #containerMain .item5 .animationOGGY img:nth-child(4) {
+    width: 20%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  html body main #containerMain .item1 {
+    grid-column: 1/span 2;
+    grid-row: 1/span 2;
+  }
+  html body main #containerMain .item2 {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  html body main #containerMain .item3 {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  html body main #containerMain .item4 {
+    grid-column: 2;
+    grid-row: 5;
+  }
+  html body main #containerMain .item5 {
+    grid-column: 1/span 2;
+    grid-row: 4;
+  }
+}
+@media screen and (max-width: 600px) {
+  html body main #containerMain .item1 {
+    grid-column: 1/span 2;
+    grid-row: 1/span 3;
+  }
+  html body main #containerMain .item2 {
+    grid-column: 1/span 2;
+    grid-row: 4/span 2;
+  }
+  html body main #containerMain .item3 {
+    grid-column: 1/span 2;
+    grid-row: 6/span 2;
+  }
+  html body main #containerMain .item4 {
+    grid-column: 1/span 2;
+    grid-row: 8/span 2;
+  }
+  html body main #containerMain .item4 .text {
+    font-size: 15px;
+  }
+  html body main #containerMain .item5 {
+    grid-column: 1/span 2;
+    grid-row: 10/span 2;
+  }
+}
+
+@keyframes textDefil {
+  from {
+    transform: translateX(-412px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+@keyframes animation-loader {
+  from {
+    width: 30px;
+    height: 30px;
+    transform: translateY(0px);
+  }
+  40% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  80% {
+    width: 30px;
+    height: 30px;
+    transform: translateY(-30px);
+  }
+  90% {
+    width: 70px;
+    height: 70px;
+    transform: translateY(0px);
+  }
+  to {
+    width: 30px;
+    height: 30px;
+  }
+}
+@keyframes loader-space {
+  40% {
+    width: 250px;
+  }
+  70% {
+    width: 175px;
+  }
+  80% {
+    width: 175px;
+  }
+  90% {
+    width: 250px;
+  }
+}
+/* animation OGGY */
+@keyframes jump {
+  from {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-50px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes mooveOggy {
+  from {
+    top: -50%;
+  }
+  2% {
+    top: 25%;
+  }
+  10% {
+    left: 25%;
+  }
+  50% {
+    left: 120%;
+  }
+  85% {
+    left: 45%;
+  }
+  88% {
+    top: 25%;
+  }
+  90% {
+    left: 45%;
+    top: 110%;
+  }
+  to {
+    left: 45%;
+    top: 110%;
+  }
+}
+@keyframes mooveCafard {
+  from {
+    top: -50%;
+  }
+  2% {
+    top: 40%;
+  }
+  15% {
+    left: 60%;
+  }
+  45% {
+    left: 150%;
+  }
+  80% {
+    left: 20%;
+    top: 40%;
+  }
+  84% {
+    top: 110%;
+    left: 10%;
+  }
+  to {
+    left: 10%;
+    top: 110%;
+  }
+}
+@media screen and (max-width: 970px) {
+  @keyframes mooveOggy {
+    from {
+      top: -50%;
+    }
+    2% {
+      top: 15%;
+    }
+    10% {
+      left: 25%;
+    }
+    50% {
+      left: 120%;
+    }
+    85% {
+      left: 45%;
+    }
+    88% {
+      top: 15%;
+    }
+    90% {
+      left: 45%;
+      top: 200%;
+    }
+    to {
+      left: 45%;
+      top: 200%;
+    }
+  }
+  @keyframes mooveCafard {
+    from {
+      top: -50%;
+    }
+    2% {
+      top: 40%;
+    }
+    15% {
+      left: 60%;
+    }
+    45% {
+      left: 150%;
+    }
+    80% {
+      left: 20%;
+      top: 40%;
+    }
+    84% {
+      top: 130%;
+      left: 10%;
+    }
+    to {
+      left: 10%;
+      top: 130%;
+    }
+  }
+}
+/*GAME*/
+@keyframes splash {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+/*Tapette*/
+@keyframes tapettebg {
+  from {
+    background-color: #facd39;
+  }
+  80% {
+    background-color: white;
+  }
+  to {
+    background-color: #facd39;
+  }
+}
+@keyframes tapette {
+  from {
+    transform: translateX(1000px) rotateZ(15deg);
+  }
+  80% {
+    transform: translateY(0px) translateX(200px) rotateZ(-15deg);
+  }
+  to {
+    transform: translateY(200px) rotateZ(-90deg);
+  }
+}
+@font-face {
+  font-family: "bangers";
+  src: url("../media/fonts/Bangers-Regular.ttf");
+}
+@font-face {
+  font-family: "Americana";
+  src: url("../media/fonts/Air Americana.ttf");
+}
+@font-face {
+  font-family: "jiggler";
+  src: url("../media/fonts/budmo jiggler.ttf");
+}
+@font-face {
+  font-family: "Romantic";
+  src: url("../media/fonts/Romantiques.ttf");
+}
+@font-face {
+  font-family: "kidos";
+  src: url("../media/fonts/KIdDOS-Regular.ttf");
+}
+
+/*# sourceMappingURL=style.css.map */

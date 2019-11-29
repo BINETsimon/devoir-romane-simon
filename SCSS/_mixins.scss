@@ -1,0 +1,17 @@
+@mixin initial{
+    width: 100%;
+    margin: 0;
+}
+
+@mixin loader {
+    animation: animation-loader 2s infinite ease;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+}
+
+@mixin animCafards {
+    animation: jump 0.3s infinite ease, mooveCafard 8s infinite linear;
+    top: 40%;
+}

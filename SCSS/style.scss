@@ -1,0 +1,652 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+html{
+    @include initial;
+    background-color: $black;
+
+    body{
+        @include initial;
+
+        header{
+            width: 100%;
+            height: 70px;
+
+            nav{
+                position: fixed;
+                width: 100%;
+                height: $nav;
+                background-color: $black;
+                color: white;
+                z-index: 75;
+
+                #burger{
+                    width: $nav;
+                    height: $nav;
+                    float: left;
+                    cursor: pointer;
+                    background-image: url("../media/oggy_Burger.gif");
+                    background-size: $nav;
+                }
+
+                #navBox{
+                    overflow: hidden;
+                    height: 100%;
+                    width: calc(100% - 70px);
+                    float: right;                  
+                    
+                    #TextAnim{
+                        animation: textDefil 5s linear infinite;
+
+                        #navTxt{
+                            font-size: 60px;
+                            font-family: "bangers";
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+
+            #BackdropNav{
+                position: fixed;
+                display: none;
+                width: 0;
+                height: $backdropNavH;
+                background-color: #000000;
+                opacity: 0.5;
+                right: 0;
+                transition: $transition;
+                z-index: 50;
+            }
+
+            @media screen and (max-width: 1600px) {
+                #BackdropNav {
+                    display: block;
+                }
+            }
+
+
+            #leftPannel{
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 0%;
+                height: calc(100vh - 70px);
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                background-color: $black;
+                color: #ffffff;
+                z-index: 50;
+
+                .navContent{
+                    padding-top: 25px;
+                    padding-bottom: 25px;
+                    font-size: 1.8em;
+                    margin-left: 20px;
+                    cursor: pointer;
+                    text-align: center;
+
+                    &:hover{
+                        background-color: #6e6e6e;
+                    }
+                }
+
+                @media screen and (max-width: 630px) {
+                    .navContent {
+                        font-size: 145%;
+                    }
+                }
+
+                .accordeon{
+                    height: 80px;
+                    overflow: hidden;
+                    transition: height $transition;
+
+                    &:hover{
+                        height: 170px;
+                    }
+
+                    .navContent{
+                        
+                        &:nth-child(2), &:nth-child(3){
+                            padding-top: 5px;
+                            padding-bottom: 5px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .remove{
+            display: none;
+        }
+        .add{
+            display: flex;
+        }
+
+        #Backdroploader{
+            position: fixed;
+            top: 0;
+            background-color: rgba($color: #000000, $alpha: 0.8);
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+
+            #loader{
+                margin: auto;
+                width: 250px;
+                height: 250px;
+                display: flex;
+                align-items: center;
+                animation: loader-space 2s ease infinite;
+                justify-content: space-around;
+
+                .item1{
+                    @include loader();
+                    animation-delay: 0;
+                }
+                .item2{
+                    @include loader();
+                    animation-delay: 0.1s;
+                }
+                .item3{
+                    @include loader();
+                    animation-delay: 0.2s;
+                }
+                .item4{
+                    @include loader();
+                    animation-delay: 0.3s;
+                }
+            }
+        }
+        
+        
+        main{
+            width: calc(100% - 20px);
+            float: right;
+
+            #containerMain{
+                float: right;
+                width: 100%;
+                height: 150vh;
+                transition: $transition;
+                display: grid;
+                grid-gap: 10px;
+                background-color: $black;
+                padding: 10px;
+                
+                .grid-item{
+                    background-color: #ffffff;
+                    font-size: 30px;
+                    
+                    height: auto;
+                    width: auto;
+                    position:relative;
+                    overflow: hidden;
+
+                    img{
+                        position: absolute;
+                    }
+                }
+                
+                .item1{
+                    grid-column: 1 /span 2;
+                    grid-row: 1 / span 2;
+
+                    #gameContainer{
+                        img{
+                            height: 100%;
+                            z-index: 1;
+
+                            &:nth-child(3){
+                                z-index: 6;
+                            }
+
+                            &:nth-child(4){
+                                z-index: 11;
+                            }
+                        }
+
+                        #cafard1,#cafard2,#cafard3{
+                            display: none;
+                        }
+                        #splash{
+                            height: 30%;
+                            opacity: 0;
+                            z-index: 21;
+                            display: none
+                        }
+                        #CLICK1,#CLICK2,#CLICK3{
+                            z-index: 20;
+                            cursor: pointer;
+                        }
+                        .anim{
+                            animation: splash 1s ease forwards;
+                        }
+
+                        #counter{
+                            position: absolute;
+                            height: 10%;
+                            z-index: 50;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+
+                            h1{
+                                font-family: bangers;
+                                color: white;
+                                margin: 0;
+                            }
+                            @media screen and (max-width: 600px){
+                                h1{
+                                    font-size: 100%;
+                                }
+                            }
+
+                            img{
+                                position: relative;
+                                height: 100%;
+                            }    
+                        }
+                    }
+                }
+                
+                .item2{
+                    grid-column: 3;
+                    grid-row: 1;
+
+                    background-color: #a56fbe;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img{
+                        left: 0;
+                        width: 130%;
+                    }
+                }
+                
+                .item3{
+                    grid-column: 3;
+                    grid-row: 2 / span;
+                    animation: tapettebg 1s infinite linear;
+                
+                    img{
+                        height: 125%;
+                        animation: tapette 1s infinite linear;
+                    }
+                }
+
+                .item4{
+                    grid-column: 1;
+                    grid-row: 3;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    .text{
+                        position: absolute;
+                        text-align: center;
+                    }
+                }
+                
+                .item5{
+                    grid-column: 2 / span 2;
+                    grid-row: 3;
+                    background-color: #ff7105;
+
+                    .animationOGGY{
+
+                        img{
+                            position: absolute;
+                            
+                            &:nth-child(1){
+                                top: -100%;
+                                left: 20%;
+                                animation: jump 0.4s infinite ease, mooveOggy 8s infinite linear;
+                                animation-delay: 0.5s;
+                            }
+                            &:nth-child(2){
+                                @include animCafards;
+                                left: 45%;
+                            }
+                            &:nth-child(3){
+                                @include animCafards;
+                                animation-delay: 0.1s;
+                                left: 63%;
+                            }
+                            &:nth-child(4){
+                                @include animCafards;
+                                animation-delay: 0.2s;
+                                left: 80%;
+                            }
+                        }
+
+                        @media screen  and (max-width: 600px){
+                            img{
+                                position: absolute;
+                                
+                                &:nth-child(1){
+                                    width: 30%;
+                                }
+                                &:nth-child(2){
+                                    width: 20%;
+                                }
+                                &:nth-child(3){
+                                    width: 20%;
+                                }
+                                &:nth-child(4){
+                                    width: 20%;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                @media screen and (max-width: 1000px){
+                    .item1{
+                        grid-column: 1 /span 2;
+                        grid-row: 1 / span 2;
+                    }
+                    
+                    .item2{
+                        grid-column: 1;
+                        grid-row: 3;
+                    }
+                    
+                    .item3{
+                        grid-column: 2;
+                        grid-row: 3;
+                    }
+    
+                    .item4{
+                        grid-column: 2;
+                        grid-row: 5;
+                    }
+                    
+                    .item5{
+                        grid-column: 1 / span 2;
+                        grid-row: 4;
+                    }
+                }
+                @media screen and (max-width: 600px){
+                    .item1{
+                        grid-column: 1 / span 2;
+                        grid-row: 1 / span 3;
+                    }
+                    
+                    .item2{
+                        grid-column: 1 / span 2;
+                        grid-row: 4 / span 2;
+                    }
+                    
+                    .item3{
+                        grid-column: 1 / span 2;
+                        grid-row: 6 / span 2;
+                    }
+    
+                    .item4{
+                        grid-column: 1 / span 2;
+                        grid-row: 8 / span 2;
+
+                        .text{
+                            font-size: 15px;
+                        }
+                    }
+                    
+                    .item5{
+                        grid-column: 1 / span 2;
+                        grid-row: 10 / span 2;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes textDefil{
+    from{
+        transform: translateX(-412px);
+    }
+    to{
+        transform: translateX(0px);
+    }
+}
+
+@keyframes animation-loader{
+    from{
+        width: 30px;
+        height: 30px;
+        transform: translateY(0px);
+    }
+    40%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(-30px);
+    }
+    80%{
+        width: 30px;
+        height: 30px;
+        transform: translateY(-30px);
+    }
+    90%{
+        width: 70px;
+        height: 70px;
+        transform: translateY(0px);
+    }
+    to{
+        width: 30px;
+        height: 30px;
+    }
+}
+@keyframes loader-space{
+    40%{
+        width: 250px;
+    }
+    70%{
+        width: 175px;
+    }
+    80%{
+        width: 175px;
+    } 
+    90%{
+        width: 250px;
+    }
+}
+
+/* animation OGGY */
+
+@keyframes jump{
+    from{
+        transform: translateY(0);
+    }
+    25%{
+        transform: translateY(-50px);
+    }   
+    to{
+        transform: translateY(0);
+    }
+}
+
+@keyframes mooveOggy{
+    from{
+        top: -50%;
+    }
+    2%{
+        top: 25%;
+    }
+    10%{
+        left: 25%;
+    }
+    50%{
+        left: 120%;
+    }
+    85%{
+        left: 45%;
+    }
+    88%{
+        top: 25%;
+    }
+    90%{
+        left: 45%;
+        top: 110%;
+    }
+    to{
+        left: 45%;
+        top: 110%;
+    }
+}
+
+@keyframes mooveCafard{
+    from{
+        top: -50%;
+    }
+    2%{
+        top: 40%;
+    }
+    15%{
+        left: 60%;
+    }
+    45%{
+        left: 150%;
+    }
+    80%{
+        left: 20%;
+        top: 40%;
+    }
+    84%{
+        top: 110%;
+        left: 10%;
+    }
+    to{
+        left: 10%;
+        top: 110%;
+    }
+}
+
+@media screen and (max-width: 970px){
+    @keyframes mooveOggy{
+        from{
+            top: -50%;
+        }
+        2%{
+            top: 15%;
+        }
+        10%{
+            left: 25%;
+        }
+        50%{
+            left: 120%;
+        }
+        85%{
+            left: 45%;
+        }
+        88%{
+            top: 15%;
+        }
+        90%{
+            left: 45%;
+            top: 200%;
+        }
+        to{
+            left: 45%;
+            top: 200%;
+        }
+    }
+    
+    @keyframes mooveCafard{
+        from{
+            top: -50%;
+        }
+        2%{
+            top: 40%;
+        }
+        15%{
+            left: 60%;
+        }
+        45%{
+            left: 150%;
+        }
+        80%{
+            left: 20%;
+            top: 40%;
+        }
+        84%{
+            top: 130%;
+            left: 10%;
+        }
+        to{
+            left: 10%;
+            top: 130%;
+        }
+    }
+}
+
+/*GAME*/
+@keyframes splash{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+/*Tapette*/
+@keyframes tapettebg{
+    from{
+        background-color: rgb(250, 205, 57);
+    }
+    80%{
+        background-color: white;
+    }
+    to{
+        background-color: rgb(250, 205, 57);
+    }
+}
+
+@keyframes tapette{
+    from{
+        transform: translateX(1000px) rotateZ(15deg);
+    }
+    80%{
+        transform: translateY(0px) translateX(200px) rotateZ(-15deg);
+    }
+    to{
+        transform: translateY(200px) rotateZ(-90deg);
+    }
+}
+
+
+@font-face{
+    font-family: "bangers";
+    src: url("../media/fonts/Bangers-Regular.ttf");
+}
+
+@font-face{
+    font-family: "Americana";
+    src: url("../media/fonts/Air\ Americana.ttf");
+}
+
+@font-face{
+    font-family: "jiggler";
+    src: url("../media/fonts/budmo\ jiggler.ttf");
+}
+
+@font-face{
+    font-family: "Romantic";
+    src: url("../media/fonts/Romantiques.ttf");
+}
+
+@font-face{
+    font-family: "kidos";
+    src: url("../media/fonts/KIdDOS-Regular.ttf");
+}
